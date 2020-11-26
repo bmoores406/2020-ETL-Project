@@ -1,82 +1,39 @@
-ETL Project
+ETL-project
+Extract
+We used 2 different datasets from the public platforms Kaggle and DataWorld which lead us to a survey for Thanksgiving and Christmas Recipes. The data in the two files included the following information:
+	• Recipe Title
+	• Recipe Description
+	• Recipe Author
+	• Ingredients list
+	• Step by step method
+	
+The fields of interest include the following:
+	• What is typically the main dish at your Thanksgiving dinner?
+	• Name
+	• URL
+	• Ingredients
+	• Which of these side dishes are typically served at your Thanksgiving dinner?
+	• Which type of pie is typically served at your Thanksgiving dinner?
 
-Data
+The following sources for our datasets used:
+https://data.world/fivethirtyeight/thanksgiving-2015
+https://www.kaggle.com/gjbroughton/christmas-recipesTransformation
+Transformation
+In order to transform the public data and use it in our study we performed the following:
+	• We used Pandas functions in Jupyter Notebook to load all the CSV and JSON files.
+	• Reviewed the files and transformed into data frames
+	• There were roughly 2,000 values 
+	• Create a new collection
+	• Kept the recipes and show your meals (main dish, side dish, desserts)
+	• Each of the categories will have their own collection after running
+	• Each app creates its own collection within the recipes database so you have the filtered nd unfiltered
+		○ For the app we use flask stuff app.py
+	
+	• Created a Flask app with 3 pathways pie, main, side dish
+	• Queried to go through the dictionary of our categories
+	
 
-Christmas Recipes
-This JSON lines file contains 1600 christmas cooking recipes scraped from BBC Good Food.
-
-The file contains:
-
-Recipe Title
-Recipe Description
-Recipe Author
-Ingredients list
-Step by step method
-
-Thanksgiving 2015
-Using a SurveyMonkey poll, we asked 1,058 respondents on Nov. 17, 2015 the following questions about their Thanksgiving:
-
-Do you celebrate Thanksgiving?
-What is typically the main dish at your Thanksgiving dinner?
-Other (please specify)
-How is the main dish typically cooked?
-Other (please specify)
-What kind of stuffing/dressing do you typically have?
-Other (please specify)
-What type of cranberry sauce do you typically have?
-Other (please specify)
-Do you typically have gravy?
-Which of these side dishes are typically served at your Thanksgiving dinner? Please select all that apply.
-Brussel sprouts
-Carrots
-Cauliflower
-Corn
-Cornbread
-Fruit salad
-Green beans/green bean casserole
-Macaroni and cheese
-Mashed potatoes
-Rolls/biscuits
-Vegetable salad
-Yams/sweet potato casserole
-Other (please specify)
-Which type of pie is typically served at your Thanksgiving dinner? Please select all that apply.
-Apple
-Buttermilk
-Cherry
-Chocolate
-Coconut cream
-Key lime
-Peach
-Pecan
-Pumpkin
-Sweet Potato
-None
-Other (please specify)
-Which of these desserts do you typically have at Thanksgiving dinner? Please select all that apply.
-Apple cobbler
-Blondies
-Brownies
-Carrot cake
-Cheesecake
-Cookies
-Fudge
-Ice cream
-Peach cobbler
-None
-Other (please specify)
-Do you typically pray before or after the Thanksgiving meal?
-How far will you travel for Thanksgiving?
-Will you watch any of the following programs on Thanksgiving? Please select all that apply.
-Macy's Parade
-What's the age cutoff at your "kids' table" at Thanksgiving?
-Have you ever tried to meet up with hometown friends on Thanksgiving night?
-Have you ever attended a "Friendsgiving?"
-Will you shop any Black Friday sales on Thanksgiving Day?
-Do you work in retail?
-Will you employer make you work on Black Friday?
-How would you describe where you live?
-Age
-What is your gender?
-How much total combined money did all members of your HOUSEHOLD earn last year?
-US Region
+Load
+The last step was to transfer our final output into a Mongo Database. We created a database and respective key words to match the ingredients from the final Panda's Data Frame using MongoDB to store our original clean data sets. We reconnected to the database and generated additional queries for the data frames.
+Summary
+There were some limitations to our findings due to the data available. However, we were able to create our app in our initial project proposal listed in the ETL Project Final Write up.
