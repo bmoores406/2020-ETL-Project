@@ -24,10 +24,11 @@
   <div class="navigation">
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" style="background-color: #835C3B;" href="Index.html">Homepage</a>
-      <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" 
+         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button>-->      
+      
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
@@ -51,19 +52,19 @@
     <div class="jumbotron text-center">
       <h1>Let's see what we're eating today.</h1>
       <p>What will we cook today?</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Recipes!</a></p>
+      <!--<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Recipes!</a></p> -->
     </div>
     <img src="http://oyster.ignimgs.com/wordpress/stg.ign.com/2019/11/Charlie-Brown-Thanksgiving.jpg" alt="Charlie Brown">
     <h2>Please select from the list below:</h2>
   
         <!-- write a for loop that lists out your data and accesses the values using dot notation. -->
-          {% for food in foods %}
+          {% for item in recipe %}
           <div class="col-lg-4">
               <div class="card" style="width: 20rem;">
                   <div class="card-body">
-                    <h4 class="card-title">{{ item.type }}</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Cost: {{ item.cost }}</h6>
-                    <p class="card-text">Potential Revenue: {{ item.cost * item.stock}}</p>
+                    <h4 class="card-title">{{ item.Name }}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Cost: {{ item.url }}</h6>
+                    
                   </div>
                 </div>
             </div>
