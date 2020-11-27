@@ -22,15 +22,18 @@ def index():
     #print(foods)
 
     # render an index.html template and pass it the data you retrieved from the database
-    return(
 
-         f"Welcome to the Recipe genrator.<br/>"
-        f"Please select from the following:<br/>"
-        f"<br/>"
-        f"/Dessert.html<br/>"
-        f"/Side.html<br/>"
-        f"/Main.html<br/>"
-    )
+    return render_template("index.html")
+    
+    #(
+
+    #      f"Welcome to the Recipe genrator.<br/>"
+    #     f"Please select from the following:<br/>"
+    #     f"<br/>"
+    #     f"/Dessert<br/>"
+    #     f"/Side<br/>"
+    #     f"/Main<br/>"
+    # )
     #render_template("index.html", foods=foods)
        
 
@@ -42,11 +45,9 @@ def main():
     main_list = []
     dictionary_main = {}
     maindishes = list(db.main.find())
-    #print(maindishes)
-    #return jsonify(maindishes
-    #return(main.find_one())
+
     for dish in maindishes:
-#        #print("dish: ", dish["Main"])
+
        for d in range(0,6):
            results0 =  db.recipe.find({ "Name": {"$regex": dish["Main"][d] }})
            d += 1
@@ -54,24 +55,50 @@ def main():
                dictionary_main["Name"]=result["Name"]
                dictionary_main["url"]=result["url"]
                db.meal2.update_one({'_id': result['_id']}, {'$set': dictionary_main}, upsert=True)
-               #main_list.append(dictionary_main)
-               #.append({result['Name']}, at {result['url']}") 
-               #print(f" You should try {result['Name']}, at {result['url']}")
+
     recipe = list(db.meal2.find())
     return render_template("Main.html", recipe=recipe)
 
-@app.route("/Dessert.html")
+@app.route("/Dessert")
 def dessert():
-    
+    ds = 0
+    dessert_list = []
+    dictionary_dessert = {}
+    dessertdishes = list(db.dessert.find())
+ 
+    for dish in dessertdishes:
 
-    return jsonify()
+       for ds in range(0,9):
+           results2 =  db.recipe.find({ "Name": {"$regex": dish["Dessert"][ds] }})
+           ds += 1
+           for result in results2:
+               dictionary_dessert["Name"]=result["Name"]
+               dictionary_dessert["url"]=result["url"]
+               db.tside.update_one({'_id': result['_id']}, {'$set': dictionary_dessert}, upsert=True)
 
+    recipe2 = list(db.tdessert.find())
+    return render_template("Dessert.html", recipe2=recipe2)
 
-@app.route("/Side.html")
+@app.route("/Side")
 def side():
-    
+    sd = 0
+    side_list = []
+    dictionary_side = {}
+    sidedishes = list(db.side.find())
+ 
+    for dish in sidedishes:
 
-    return jsonify()
+       for sd in range(0,8):
+           results3 =  db.recipe.find({ "Name": {"$regex": dish["Side"][sd] }})
+           sd += 1
+           for result in results3:
+               dictionary_side["Name"]=result["Name"]
+               dictionary_side["url"]=result["url"]
+               db.tside.update_one({'_id': result['_id']}, {'$set': dictionary_side}, upsert=True)
+
+    recipe3 = list(db.tside.find())
+    return render_template("Side.html", recipe3=recipe3)    
+
 
 if __name__ == "__main__":
     app.run(debug=True)

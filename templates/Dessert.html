@@ -23,11 +23,11 @@
   <!-- Navigation Section -->
   <div class="navigation">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" style="background-color: #835C3B;" href="Index.html">Homepage</a>
-      <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      <a class="navbar-brand" style="background-color: #835C3B;" href="/">Homepage</a>
+     <!-- <button class="navbar-toggler border border-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button>-->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
@@ -36,9 +36,9 @@
               Dishes
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="Main.html">Main</a>
-              <a class="dropdown-item" href="Side.html">Side</a>
-              <a class="dropdown-item" href="Dessert.html">Dessert</a>
+              <a class="dropdown-item" href="Main">Main</a>
+              <a class="dropdown-item" href="Side">Side</a>
+              <a class="dropdown-item" href="Dessert">Dessert</a>
             </div>
           </li>
         </ul>
@@ -50,7 +50,7 @@
   <div class="container-fluid">
     <div class="jumbotron text-center">
       <h1>Let's get a sweet treat</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Recipes!</a></p>
+     <!-- <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Recipes!</a></p>-->
     </div>
     <img src="https://www.brit.co/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yMTg5MzEyNS9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTYxMTk3MTkyMn0.tqYFgYIz0rZGWgvEVvSAXG9F35y9xdpF3Ks8TQ7fsSM/image.jpg?width=600&quality=85" alt="Sweet">
     <h2>Please select from the list below:</h2>
@@ -58,13 +58,13 @@
       <h1 class="jumbotron">Inventory</h1>
       <div>
         <!-- write a for loop that lists out your data and accesses the values using dot notation. -->
-          {% for food in foods %}
+           {% for item in recipe2 %}
           <div class="col-lg-4">
               <div class="card" style="width: 20rem;">
                   <div class="card-body">
-                    <h4 class="card-title">{{ item.type }}</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Cost: {{ item.cost }}</h6>
-                    <p class="card-text">Potential Revenue: {{ item.cost * item.stock}}</p>
+                    <h4 class="card-title">{{ item.Name }}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">URL <a href = {{ item.url }} target ="_blank">{{ item.url }}</a></h6>
+                    
                   </div>
                 </div>
             </div>
