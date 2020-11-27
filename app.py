@@ -74,7 +74,7 @@ def dessert():
            for result in results2:
                dictionary_dessert["Name"]=result["Name"]
                dictionary_dessert["url"]=result["url"]
-               db.tside.update_one({'_id': result['_id']}, {'$set': dictionary_dessert}, upsert=True)
+               db.tdessert.update_one({'_id': result['_id']}, {'$set': dictionary_dessert}, upsert=True)
 
     recipe2 = list(db.tdessert.find())
     return render_template("Dessert.html", recipe2=recipe2)
