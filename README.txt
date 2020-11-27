@@ -1,82 +1,30 @@
 ETL Project
 
+Group Members - Greg Dorleus, Josh Cohn, Brian Moores
+
+Extract
+
 Data
 
 Christmas Recipes
 This JSON lines file contains 1600 christmas cooking recipes scraped from BBC Good Food.
 
-The file contains:
-
-Recipe Title
-Recipe Description
-Recipe Author
-Ingredients list
-Step by step method
-
 Thanksgiving 2015
 Using a SurveyMonkey poll, we asked 1,058 respondents on Nov. 17, 2015 the following questions about their Thanksgiving:
-
-Do you celebrate Thanksgiving?
 What is typically the main dish at your Thanksgiving dinner?
-Other (please specify)
-How is the main dish typically cooked?
-Other (please specify)
-What kind of stuffing/dressing do you typically have?
-Other (please specify)
-What type of cranberry sauce do you typically have?
-Other (please specify)
-Do you typically have gravy?
 Which of these side dishes are typically served at your Thanksgiving dinner? Please select all that apply.
-Brussel sprouts
-Carrots
-Cauliflower
-Corn
-Cornbread
-Fruit salad
-Green beans/green bean casserole
-Macaroni and cheese
-Mashed potatoes
-Rolls/biscuits
-Vegetable salad
-Yams/sweet potato casserole
-Other (please specify)
-Which type of pie is typically served at your Thanksgiving dinner? Please select all that apply.
-Apple
-Buttermilk
-Cherry
-Chocolate
-Coconut cream
-Key lime
-Peach
-Pecan
-Pumpkin
-Sweet Potato
-None
-Other (please specify)
 Which of these desserts do you typically have at Thanksgiving dinner? Please select all that apply.
-Apple cobbler
-Blondies
-Brownies
-Carrot cake
-Cheesecake
-Cookies
-Fudge
-Ice cream
-Peach cobbler
-None
-Other (please specify)
-Do you typically pray before or after the Thanksgiving meal?
-How far will you travel for Thanksgiving?
-Will you watch any of the following programs on Thanksgiving? Please select all that apply.
-Macy's Parade
-What's the age cutoff at your "kids' table" at Thanksgiving?
-Have you ever tried to meet up with hometown friends on Thanksgiving night?
-Have you ever attended a "Friendsgiving?"
-Will you shop any Black Friday sales on Thanksgiving Day?
-Do you work in retail?
-Will you employer make you work on Black Friday?
-How would you describe where you live?
-Age
-What is your gender?
-How much total combined money did all members of your HOUSEHOLD earn last year?
-US Region
+
+We used pandas to view and clean our Thankgiving Dinner Survey CSV and our Holiday Recipes API.  
+
+Transform 
+
+For the Survey we had to rename columns and break them down into three categories: Main Dishes, Side Dishes, and Desserts.
+We transposed and indexed each dataframe to get a list of unique dishes for each category, 
+then we converted each list into a dictionary for Main Dishes, Side Dishes, and Desserts.
+
+We connected to MongoDB and created a Recipes_DB in which we created collections Main Dishes, Side Dishes, and Desserts.
+Then 
+
+Load
+
